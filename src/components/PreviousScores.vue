@@ -3,7 +3,7 @@
     <div
       v-for="(item, index) in gameStore.previousWins"
       :key="index"
-      class="tw-rounded-[5px] tw-flex tw-justify-center tw-items-center tw-w-[64px] tw-h-[32px]"
+      class="tw-rounded-[5px] tw-flex tw-justify-center tw-items-center tw-w-[80px] tw-h-[32px]"
       :class="colors[index]"
     >
       {{ item }}x

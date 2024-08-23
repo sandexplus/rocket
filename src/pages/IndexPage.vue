@@ -7,7 +7,7 @@
       </div>
       <div ref="gameRef" >
         <GameComponent
-          class="tw-max-w-[750px]"
+          class="tw-max-w-[910px]"
         />
       </div>
     </div>
