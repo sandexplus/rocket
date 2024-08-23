@@ -1,1 +1,66 @@
+@import "Helvard";
+@import "FSElliot";
 // app global css in SCSS form
+@tailwind utilities;
+
+* {
+  font-family: 'Helvard', sans-serif;
+  font-weight: 700;
+}
+
+.font-elliot {
+  font-family: "FS Elliot", sans-serif;
+}
+
+.win-notify {
+  background: linear-gradient(to top left, #252339 0%, #252339 60%, rgba(101,165,223,.5) 100%)
+}
+
+.bg-dark-bg {
+  background-color: $dark-bg;
+}
+
+.bg-dark-border {
+  background-color: $dark-border;
+}
+
+.text-toggle_text_grey {
+  color: $text_toggle_grey;
+}
+
+.bg-toggle_text_grey {
+  background-color: $text_toggle_grey;
+}
+
+.text-menu_border {
+  color: $menu-border;
+}
+
+.bg-menu_border {
+  background-color: $menu-border;
+}
+
+.text-menu_button {
+  color: $menu-button;
+}
+
+.bg-menu_button {
+  background-color: $menu-button;
+}
+
+.bg-light_grey {
+  background-color: $bg-grey;
+}
+
+.text-light_grey {
+  color: $bg-grey;
+}
+
+.bg-input_black {
+  background-color: $bg-black !important;
+}
+
+.text-input_black {
+  color: $bg-black !important;
+}
+
