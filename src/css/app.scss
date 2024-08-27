@@ -1,15 +1,20 @@
 @import "Helvard";
 @import "FSElliot";
+@import "Eurostile";
 // app global css in SCSS form
 @tailwind utilities;
 
 * {
-  font-family: 'Helvard', sans-serif;
+  font-family: 'Eurostile', sans-serif;
   font-weight: 700;
 }
 
 .font-elliot {
   font-family: "FS Elliot", sans-serif;
+}
+
+.font-helvard {
+  font-family: "Helvard", sans-serif;
 }
 
 .win-notify {

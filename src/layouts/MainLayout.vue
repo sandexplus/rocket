@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-page-container>
-      <img src="~assets/bg.png" alt="" class="bg">
+    <q-page-container class="bg-container">
+      <img src="~assets/bg.svg" alt="" class="bg">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -14,13 +14,16 @@ defineOptions({
 </script>
 
 <style lang="scss">
+.bg-container {
+  background-color: $dark;
+}
+
 .bg {
   width: 100vw;
   object-fit: cover;
-  height: 100vh;
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
-  z-index: -1;
+  z-index: 0;
 }
 </style>

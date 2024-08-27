@@ -3,10 +3,8 @@
     v-model="_modelValue"
     class="toggle"
     dense
-    color="light_grey"
-    icon-color="white"
   >
-    <span class="text-toggle_text_grey tw-text-[14px] text-bold">{{ label.toUpperCase() }}</span>
+    <span class="text-white tw-text-[17px] text-bold">{{ label }}</span>
   </q-toggle>
 </template>
 
@@ -25,28 +23,31 @@ const _modelValue = useVModel(props, 'modelValue', emits)
 <style lang="scss">
 .toggle {
   & .q-toggle__thumb {
-    width: 7px;
-    height: 7px;
-    top: 6px;
-    color: #858CAB !important;
+    width: 15px;
+    height: 15px;
+    top: 4px;
+    color: #13151D !important;
   }
 
   & .q-toggle__inner {
-    width: 17px !important;
+    width: 31px !important;
     min-width: 17px !important;
   }
 
   & .q-toggle__inner.q-toggle__inner--truthy .q-toggle__thumb {
-    left: 0.2em !important;
+    left: 15px !important;
   }
 
   & .q-toggle__track {
-    width: 17px;
-    height: 13px;
+    width: 31px;
+    height: 17px;
+    background: linear-gradient(180deg, #F88A25 0%, #FAB42D 50.52%, #F8B025 100%) !important;
+    opacity: 1 !important;
   }
 
   & .q-toggle__label {
-    padding-left: 6px !important;
+    padding-top: 4px;
+    padding-left: 8px !important;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-9 tw-h-[361px]">
+  <div class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-9 tw-h-[458px]">
     <div class="circle tw-relative">
       <LottieAnimation
         :animation-data="AstronautJSON"

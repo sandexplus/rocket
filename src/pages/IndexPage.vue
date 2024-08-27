@@ -1,5 +1,5 @@
 <template>
-  <q-page class="tw-flex tw-flex-col items-center justify-evenly">
+  <q-page class="tw-flex tw-flex-col items-center justify-evenly tw-overflow-hidden no-scroll tw-h-screen">
     <div class="tw-relative game">
       <div class="balance tw-flex tw-items-center tw-gap-2.5 bg-menu_button tw-p-1.5 tw-rounded-[8px] tw-h-[32px]">
         <img src="~assets/coin.png">
@@ -7,7 +7,7 @@
       </div>
       <div ref="gameRef" >
         <GameComponent
-          class="tw-max-w-[910px]"
+          class="tw-max-w-[1000px]"
         />
       </div>
     </div>
@@ -52,20 +52,23 @@ const scaleValue = computed(() => {
 
 <style lang="scss" scoped>
 .balance {
-  @apply tw-absolute tw-top-0 tw-right-0;
+  @apply tw-absolute tw-top-[20px] tw-right-0;
   translate: calc(100% + 60px) 0;
 
   @media (max-width: 800px) {
-    translate: 0 calc(-100% - 20px);
+    translate: 0 calc(-100% - 40px);
   }
 }
 
 .game {
   transform: v-bind(scaleValue);
   //transform-origin: left;
-
-  //@media (max-width: 800px) {
-  //  transform: scale(1);
-  //}
+  //
+  @media (max-width: 800px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+  }
 }
 </style>

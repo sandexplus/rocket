@@ -1,15 +1,12 @@
 <template>
   <div class="tw-relative tw-pt-10 tw-flex tw-flex-col tw-items-center tw-gap-4">
     <div class="coefficient-container tw-flex tw-flex-col tw-items-center tw-relative">
-      <span class="coefficient tw-text-[48px] tw-leading-[55px]" :class="gameStore.gameStatus === GAME_STATUS.FAILED ? 'text-negative' : 'text-primary'">x{{ gameStore.coefficient.toFixed(2) }}</span>
-      <span
-        v-if="gameStore.gameStatus === GAME_STATUS.FAILED"
-        class="tw-uppercase tw-text-[20px] tw-leading-[22px] tw-absolute -tw-bottom-[50%] text-white"
-      >
-        Взорвался
-      </span>
+      <span class="coefficient tw-text-[102px] tw-leading-1" :class="gameStore.gameStatus === GAME_STATUS.FAILED ? 'gradient-failure' : 'gradient-success'">x{{ gameStore.coefficient.toFixed(2) }}</span>
     </div>
     <div class="rocket-container">
+      <div class="history">
+        <img src="~assets/history.svg">
+      </div>
       <div class="rocket-line">
         <img src="~assets/line.svg">
       </div>
@@ -95,20 +92,17 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.coefficient {
-  text-shadow: 0 0 16px rgba(255, 44, 82, .35);
-}
-
 @keyframes moveInArc {
   0% {
-    transform: translate(0, 0) rotate(20deg);
+    transform: translate(0, 0) rotate(30deg);
   }
-  50% {
-    transform: translate(250px, -35%) rotate(10deg);
+  60% {
+    transform: translate(250px, -35%) rotate(25deg);
+    bottom: -150px;
   }
   100% {
     transform: translate(550px, -110%) rotate(-5deg);
-    bottom: -95px;
+    bottom: -125px;
   }
 }
 
@@ -123,7 +117,7 @@ onMounted(() => {
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  bottom: -90px;
+  bottom: -120px;
   left: 0;
   animation: moveInArc 4s linear forwards;
 
@@ -133,15 +127,15 @@ onMounted(() => {
 }
 
 .rocket-ship {
-  rotate: 15deg;
+  width: 100%;
 }
 
 .rocket-fire {
   position: absolute;
   height: 80px;
-  rotate: -120deg;
-  left: -41px;
-  bottom: 1px;
+  rotate: -130deg;
+  left: -31px;
+  bottom: 27px;
 }
 
 .blow-animation {
@@ -149,11 +143,39 @@ onMounted(() => {
   height: 133px;
   position: absolute;
   right: -15px;
-  top: 20px;
+  top: -20px;
 }
 
 .rocket-line {
   width: 100%;
   position: absolute;
+
+  & img {
+    width: 100%;
+  }
+}
+
+.history {
+  position: absolute;
+  right: -50px;
+  bottom: -20%;
+  height: 100%;
+
+  & img {
+    height: 100%;
+  }
+}
+
+.gradient {
+  &-success {
+    background: linear-gradient(0deg, #51B12F 36.21%, #7BEB53 97.41%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &-failure {
+    background: linear-gradient(0deg, #B12F2F 36.21%, #EB8153 97.41%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 </style>

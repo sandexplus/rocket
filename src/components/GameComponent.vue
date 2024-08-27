@@ -1,8 +1,8 @@
 <template>
   <div class="tw-flex tw-flex-col tw-items-center tw-w-full">
-    <PreviousScores />
+    <PreviousScores class="tw-mb-[100px]" />
     <RocketFly />
-    <BetMenu class="tw-max-w-[60%]" />
+    <BetMenu class="tw-max-w-[520px]" />
   </div>
 </template>
 
