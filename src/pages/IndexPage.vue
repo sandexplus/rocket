@@ -5,6 +5,11 @@
         <img src="~assets/coin.png">
         <span class="text-white font-elliot">{{ gameStore.balance.toFixed(2) }}</span>
       </div>
+      <div class="logo">
+        <a :href="gameStore.redirectLink" target="_blank">
+          <img src="~assets/logo.png">
+        </a>
+      </div>
       <div ref="gameRef" >
         <GameComponent
           class="tw-max-w-[910px]"
@@ -34,14 +39,14 @@ const decodedData = computed(() => route.query.data as string)
 const encodedData = computed(() => getParams(encodeString(decodedData.value)))
 
 watch(encodedData, () => {
-  gameStore.promo = encodedData.value?.promo || ''
-  gameStore.redirectLink = encodedData.value?.link || ''
+  gameStore.promo = encodedData.value?.promo || 'SHORTS'
+  gameStore.redirectLink = encodedData.value?.link || 'http://jj.su/uakHir'
 }, {immediate: true})
 
 const scaleValue = computed(() => {
   if (!gameRef.value) return 'scale(1)'
 
-  const targetWidth = Screen.width > 800 ? Screen.width * 0.45 : Screen.width * 0.8
+  const targetWidth = Screen.width > 800 ? Screen.width * 0.65 : Screen.width * 0.8
   const elementWidth = gameRef.value.offsetWidth
 
   const scale = targetWidth / elementWidth
@@ -57,6 +62,16 @@ const scaleValue = computed(() => {
 
   @media (max-width: 800px) {
     translate: 0 calc(-100% - 20px);
+  }
+}
+
+.logo {
+  @apply tw-absolute tw-top-[-20px] tw-left-0 tw-cursor-pointer;
+  translate: calc(100% - 385px) 0;
+
+  @media (max-width: 800px) {
+    left: 50%;
+    translate: -50% calc(-100% - 20px);
   }
 }
 
