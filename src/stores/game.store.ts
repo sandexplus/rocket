@@ -25,8 +25,8 @@ export const useGameStore = defineStore('game', () => {
   const bet = ref(0)
   const betMade = ref(false)
 
-  const autoStop = ref(false)
-  const autoStopCoefficient = ref(0)
+  const autoStop = ref(true)
+  const autoStopCoefficient = ref(2)
 
   const resetStore = () => {
     coefficient.value = 0

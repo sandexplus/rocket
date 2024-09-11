@@ -1,19 +1,17 @@
 <template>
   <div class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-9 tw-h-[458px]">
-    <div class="circle tw-relative">
-      <LottieAnimation
-        :animation-data="AstronautJSON"
-        auto-play
-        loop
-        class="tw-absolute tw-w-[140px]"
-      />
-      <div class="loader-container tw-w-[144px] tw-h-[144px]">
-        <img src="~assets/loader.svg" class="loader">
-        <img src="~assets/inner-loader.svg" class="inner-loader">
-        <img src="~assets/outer-loader.svg" class="outer-loader">
+    <div class="tw-relative tw-flex tw-flex-col tw-items-center tw-gap-2">
+<!--      <LottieAnimation-->
+<!--        :animation-data="AstronautJSON"-->
+<!--        auto-play-->
+<!--        loop-->
+<!--        class="tw-absolute tw-w-[140px]"-->
+<!--      />-->
+      <img src="~/assets/loading-rocket.svg" class="tw-w-[70px] tw-block">
+      <span class="text-center tw-text-[24px] tw-uppercase text-white">Заправляем шаттл...</span>
+      <div class="loader-container tw-w-[323px] tw-h-[13px]">
       </div>
     </div>
-    <span class="text-center tw-text-[24px] tw-uppercase text-white">Заправляем шаттл...</span>
   </div>
 </template>
 
@@ -32,54 +30,29 @@ setTimeout(() => {
 
 <style scoped lang="scss">
 
-@keyframes rotate {
+@keyframes loading {
   0% {
-    transform: rotate(0deg);
+    width: 0;
   }
   100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotate-reverse {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
+    width: 323px;
   }
 }
 
 .loader-container {
   position: relative;
+  background: #22252F;
+  border-radius: 13px;
 
-  & .outer-loader {
-    position: absolute;
-    top: -18px;
-    left: -18px;
-    width: 180px;
-    height: 180px;
-    z-index: 3;
-    animation: rotate-reverse 2s infinite linear;
-  }
-
-  & .loader {
-    position: absolute;
-    top: -12px;
-    left: -12px;
-    width: 168px;
-    height: 168px;
-    animation: rotate 2s infinite linear;
-    z-index: 2;
-  }
-
-  & .inner-loader {
+  &:before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
     height: 100%;
-    z-index: 1;
+    background: #F99728;
+    animation: loading 5s linear infinite;
+    border-radius: 13px;
   }
 }
 </style>

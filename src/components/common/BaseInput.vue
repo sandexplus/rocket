@@ -9,6 +9,7 @@
       bg-color="input_black"
       hide-bottom-space
       borderless
+      :prefix="prefix"
     >
       <template #prepend>
         <q-btn
@@ -52,6 +53,7 @@ const props = defineProps<{
   modelValue: number
   fontSize: string
   buttons?: boolean
+  prefix?: string
 }>()
 const emits = defineEmits(['update:modelValue'])
 
