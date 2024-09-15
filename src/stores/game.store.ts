@@ -22,7 +22,7 @@ export const useGameStore = defineStore('game', () => {
   const maxCoefficient = ref(randomResult())
 
   const win = ref(0)
-  const bet = ref(0)
+  const bet = ref(1000)
   const betMade = ref(false)
 
   const autoStop = ref(true)
