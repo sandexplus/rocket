@@ -72,7 +72,11 @@ onMounted(() => {
     gameStore.coefficient = value
 
     if (gameStore.betMade && gameStore.autoStop && gameStore.autoStopCoefficient <= value) {
+      gameStore.winsCount++
       gameStore.takeBet(gameStore.autoStopCoefficient)
+      if (gameStore.winsCount === 1 || gameStore.winsCount % 5 === 0) {
+        gameStore.dialogOpened = true
+      }
     }
 
     if (done) {
