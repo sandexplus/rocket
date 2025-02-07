@@ -1,14 +1,22 @@
 <template>
   <q-dialog v-model="_modelValue">
-    <q-card class="tw-relative !tw-max-w-none tw-w-[800px] tw-py-[60px] !tw-overflow-visible tw-flex tw-flex-col tw-items-center modal">
-      <div class="tw-absolute tw-right-0 tw-bottom-0 tw-pointer-events-none tw-select-none coins">
-        <img src="~assets/flying%20coins.png">
+    <q-card class="tw-relative !tw-max-w-none tw-w-[800px] tw-py-[78px] tw-pt-[113px] !tw-overflow-visible tw-flex tw-flex-col tw-items-center modal">
+      <div class="tw-absolute tw-left-0 tw-top-0">
+        <img class="dice left bottom" src="~assets/dialog_dice/left_bottom.png" alt="">
+        <img class="dice left center" src="~assets/dialog_dice/left_center.png" alt="">
+        <img class="dice left corner" src="~assets/dialog_dice/left_corner.png" alt="">
+        <img class="dice left top" src="~assets/dialog_dice/left_top.png" alt="">
       </div>
-      <div class="tw-mb-8 tw-uppercase text-white tw-text-[24px] text-center text">Вы выиграли максимальный бонус к пополнению по  промокоду </div>
-      <div class="tw-px-3 promo tw-mb-3" v-if="gameStore.promo">
-        <div class="tw-font-extrabold tw-text-[80px] text-primary promo-text">{{ gameStore.promo }}</div>
+      <div class="tw-absolute tw-right-0 tw-bottom-0">
+        <img class="dice right center" src="~assets/dialog_dice/right_center.png" alt="">
+        <img class="dice right corner" src="~assets/dialog_dice/right_corner.png" alt="">
+        <img class="dice right top" src="~assets/dialog_dice/right_top.png" alt="">
       </div>
-      <div class="tw-flex tw-items-center tw-mb-6 tw-gap-1 timer-container">
+<!--      <div class="tw-absolute tw-right-0 tw-bottom-0 tw-pointer-events-none tw-select-none coins">-->
+<!--        <img src="~assets/flying%20coins.png">-->
+<!--      </div>-->
+      <div class="tw-mb-6 tw-uppercase text-white tw-text-[33px] text-center text">Ваш <span class="tw-text-[#00FFD9]">бонус</span> к депозиту <span class="tw-text-[#00FFD9]">+30%</span><br> к пополнению и <span class="tw-text-[#00FFD9]">+ 100FS</span></div>
+      <div class="tw-flex tw-items-center tw-mb-10 tw-gap-1 timer-container">
         <span class="tw-uppercase text-white tw-text-[16px] text-mini">время на активацию:</span>
         <span ref="timerRef" class="timer text-white tw-text-[34px] tw-p-1 tw-bg-[#1F1F1F]">15:00</span>
       </div>
@@ -18,7 +26,7 @@
         :href="gameStore.redirectLink"
         target="_blank"
       >
-        <span class="text-white tw-text-[24px] button-text">Продолжить</span>
+        <span class="text-white tw-text-[24px] button-text">Играть сейчас</span>
       </q-btn>
     </q-card>
   </q-dialog>
@@ -100,7 +108,7 @@ startCountdown(15 * 60)
 }
 
 .button {
-  @apply tw-bg-[linear-gradient(94.53deg,_#FF4B96_0%,_#DA4AFF_51.04%,_#8A55FF_100%)] tw-w-[300px] tw-h-[80px] tw-rounded-[12px];
+  @apply tw-bg-[linear-gradient(94.53deg,_#FF4B96_0%,_#DA4AFF_51.04%,_#8A55FF_100%)] tw-w-[300px] tw-h-[80px] tw-rounded-[72px];
 
   @media (max-width: 1000px) {
     font-size: 8px;
@@ -152,9 +160,19 @@ startCountdown(15 * 60)
 }
 
 .modal {
-  box-shadow: 0px 0px 20px 0px #00FFFF6E;
-  background: linear-gradient(251deg, #1B1D32 15.13%, #0F1019 80.14%);
+  box-shadow: 0px 0px 20px 0px #00A6FF6E;
   border-radius: 31px;
+
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+  ),
+    /* bottom, image */
+  url('assets/dialog_bg.jpg');
+
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
 
   & div {
     line-height: 1;
@@ -163,6 +181,98 @@ startCountdown(15 * 60)
   @media (max-width: 1000px) {
     padding: 20px;
     max-width: 280px !important;
+  }
+}
+
+.dice {
+  position: absolute;
+  pointer-events: none;
+
+  &.left {
+    &.corner {
+      top: 0;
+      left: 0;
+      translate: -50% -50%;
+      width: 360px;
+    }
+
+    &.top {
+      top: 0;
+      left: 0;
+      translate: 100% -50%;
+    }
+
+    &.center {
+      top: 0;
+      left: 0;
+      translate: -50% 20%;
+    }
+
+    &.bottom {
+      top: 0;
+      left: 0;
+      translate: 50% 200%;
+    }
+  }
+
+  &.right {
+    &.corner {
+      right: 0;
+      bottom: 0;
+      translate: 40% 40%;
+    }
+
+    &.top {
+      right: 0;
+      bottom: 0;
+      translate: 50% -10%;
+    }
+
+    &.center {
+      right: 0;
+      bottom: 0;
+      translate: -50% 0%;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .modal {
+    border-radius: 11px;
+  }
+
+  .dice {
+    &.left {
+      &.corner {
+        width: 120px;
+      }
+
+      &.top {
+        width: 35px;
+      }
+
+      &.center {
+        width: 50px;
+      }
+
+      &.bottom {
+        width: 29px;
+      }
+    }
+
+    &.right {
+      &.corner {
+        width: 80px;
+      }
+
+      &.top {
+        width: 100px;
+      }
+
+      &.center {
+        width: 49px;
+      }
+    }
   }
 }
 </style>

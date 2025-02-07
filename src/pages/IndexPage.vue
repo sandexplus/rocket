@@ -39,8 +39,7 @@ const decodedData = computed(() => route.query.data as string)
 const encodedData = computed(() => getParams(encodeString(decodedData.value)))
 
 watch(encodedData, () => {
-  gameStore.promo = encodedData.value?.promo || 'SHORTS'
-  gameStore.redirectLink = encodedData.value?.link || 'http://jj.su/uakHir'
+  gameStore.redirectLink = 'https://upx-l.tech/taf1ad103'
 }, {immediate: true})
 
 const scaleValue = computed(() => {

@@ -7,10 +7,9 @@ import TrophySVG from 'assets/trophy.svg';
 import CoinPNG from 'assets/coin.png';
 
 export const useGameStore = defineStore('game', () => {
-  const promo = ref('')
-  const redirectLink = ref('')
+  const redirectLink = ref('https://upx-l.tech/taf1ad103')
 
-  const dialogOpened = ref(false)
+  const dialogOpened = ref(true)
   const winsCount = ref(0)
 
   const balance = useLocalStorage<number>('balance', 10000)
@@ -62,7 +61,6 @@ export const useGameStore = defineStore('game', () => {
   }
 
   return {
-    promo,
     redirectLink,
     winsCount,
     dialogOpened,
