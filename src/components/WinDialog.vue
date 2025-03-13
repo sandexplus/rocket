@@ -18,7 +18,7 @@
       <div class="tw-mb-6 tw-uppercase text-white tw-text-[33px] text-center text">Ваш <span class="tw-text-[#00FFD9]">бонус</span> к депозиту <span class="tw-text-[#00FFD9]">+30%</span><br> к пополнению и <span class="tw-text-[#00FFD9]">+ 100FS</span></div>
       <div class="tw-flex tw-items-center tw-mb-10 tw-gap-1 timer-container">
         <span class="tw-uppercase text-white tw-text-[16px] text-mini">время на активацию:</span>
-        <span ref="timerRef" class="timer text-white tw-text-[34px] tw-p-1 tw-bg-[#1F1F1F]">15:00</span>
+        <span ref="timerRef" class="timer text-white tw-text-[34px] tw-p-1">15:00</span>
       </div>
       <q-btn
         no-caps
